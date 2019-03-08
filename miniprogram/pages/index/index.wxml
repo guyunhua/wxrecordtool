@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="header">
+    <view class="quick">
+      <view class="add">
+        <text>+</text>
+      </view>
+      <input class="new-quick" value="{{ content }}" placeholder="快速添加..." bindinput="inputTodo" bindconfirm="addTodo" auto-focus />
+    </view>
+    <text class="new" bindtap="createItem">添加记录</text>
+  </view>
+  <block wx:if="{{ histroys.length }}">
+    <view>
+      <view wx:for="{{ histroys }}" class='showItem' wx:key="" >
+        <image class='details-image' src="{{item.histroy.imageURL}}"></image>
+        <view class='details'>
+          <text>{{item.histroy.content}}</text>
+          <text>{{item.histroy.timestamp}}</text>
+        </view>
+      
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="empty">
+      <text class="title">hi</text>
+      <text class="content">快来添加一条新记录吧</text>
+    </view>
+  </block>
+</view>
